@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Jara Natalia Anahi | Técnico Preceptor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: var(--secondary-color);
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.9);
+            transition: transform 0.2s;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+        }
+
+        .contact-item a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--secondary-color);
+        }
+
+        .icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 45px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--secondary-color);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        /* About */
+        .about-text {
+            color: var(--text-light);
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        /* Experience & Education */
+        .timeline-item {
+            margin-bottom: 30px;
+            padding-left: 25px;
+            border-left: 2px solid var(--secondary-color);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+        }
+
+        .job-title, .degree-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .company, .institution {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .period, .location {
+            color: var(--text-light);
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .responsibilities {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .responsibilities li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 5px;
+            color: var(--text-light);
+        }
+
+        .responsibilities li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 8px 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-list li::before {
+            content: '✓';
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Projects */
+        .project-card {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .project-name {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Languages */
+        .languages-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .language-item {
+            flex: 1;
+            min-width: 200px;
+            background: var(--bg-light);
+            padding: 15px 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .language-level {
+            color: var(--text-light);
+            font-size: 0.9em;
+        }
+
+        /* Certifications */
+        .cert-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cert-item:last-child {
+            border-bottom: none;
+        }
+
+        .cert-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .cert-details {
+            color: var(--text-light);
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        /* Volunteer */
+        .volunteer-list {
+            list-style: none;
+        }
+
+        .volunteer-list li {
+            padding: 12px 0;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .volunteer-list li::before {
+            content: '♥';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            main {
+                padding: 25px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            header {
+                background: var(--primary-color);
+                page-break-after: avoid;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+
+            .project-card, .skill-category {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Jara Natalia Anahi</h1>
+                <p class="subtitle">Técnico Preceptor</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        <a href="mailto:nataliafunalfa@gmail.com">nataliafunalfa@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        <span>Garupà, Misiones, Argentina</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <a href="https://github.com/NataliaJara2025" target="_blank">github.com/NataliaJara2025</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section id="about">
+                <h2>Sobre Mí</h2>
+                <div class="about-text">
+                    <p>Profesional dedicada al ámbito educativo con amplia experiencia en gestión administrativa y acompañamiento pedagógico en instituciones del sistema educativo de Misiones. Mi trayectoria se ha caracterizado por el compromiso con la mejora del clima escolar y el bienestar estudiantil, trabajando directamente con estudiantes, docentes y la comunidad educativa en general.</p>
+                    
+                    <p>Actualmente me encuentro finalizando mi formación como Técnico Preceptor, complementando mi título en Humanidades y Ciencias Sociales con especialización en gestión educativa. He desarrollado habilidades sólidas en la redacción de proyectos educativos, comunicación institucional y coordinación de talleres grupales.</p>
+                    
+                    <p>Mi objetivo es continuar contribuyendo al desarrollo integral de los estudiantes, promoviendo espacios de escucha, convivencia saludable y acompañamiento pedagógico que fortalezcan las trayectorias educativas y el desarrollo de competencias socioemocionales en la comunidad escolar.</p>
+                </div>
+            </section>
+
+            <section id="experience">
+                <h2>Experiencia Laboral</h2>
+                
+                <div class="timeline-item">
+                    <h3 class="job-title">Técnico Administrativo</h3>
+                    <p class="company">MECyT (Ministerio de Educación, Cultura, Ciencia y Tecnología)</p>
+                    <p class="period">Marzo 2018 - Octubre 2025</p>
+                    <p class="location">Posadas, Misiones, Argentina</p>
+                    <ul class="responsibilities">
+                        <li>Redacción de informes técnicos y documentación administrativa del área educativa</li>
+                        <li>Confección y seguimiento de proyectos institucionales y educativos</li>
+                        <li>Gestión de la comunicación institucional entre diferentes actores del sistema educativo</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="job-title">Asistente Pedagógico</h3>
+                    <p class="company">MECyT (Ministerio de Educación, Cultura, Ciencia y Tecnología)</p>
+                    <p class="period">Marzo 2018 - Octubre 2025</p>
+                    <p class="location">Posadas, Misiones, Argentina</p>
+                    <ul class="responsibilities">
+                        <li>Diseño y facilitación de talleres y encuentros con grupos estudiantiles</li>
+                        <li>Redacción de proyectos educativos enfocados en el acompañamiento pedagógico y socioemocional</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="education">
+                <h2>Educación</h2>
+                
+                <div class="timeline-item">
+                    <h3 class="degree-title">Técnico Preceptor</h3>
+                    <p class="institution">Instituto Alfa</p>
+                    <p class="period">En curso</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="degree-title">Humanidades y Ciencias Sociales</h3>
+                    <p class="institution">Instituto Posadas 0403</p>
+                    <p class="period">2004</p>
+                </div>
+            </section>
+
+            <section id="skills">
+                <h2>Habilidades</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Habilidades Técnicas</h3>
+                        <ul class="skill-list">
+                            <li>Manejo de herramientas informáticas</li>
+                            <li>Redacción de informes y proyectos</li>
+                            <li>Gestión administrativa</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Habilidades Blandas</h3>
+                        <ul class="skill-list">
+                            <li>Trabajo en equipo</li>
+                            <li>Comunicación asertiva</li>
+                            <li>Manejo de grupos</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <h2>Proyectos Destacados</h2>
+                
+                <div class="project-card">
+                    <h3 class="project-name">Bienestar Estudiantil</h3>
+                    <p class="project-description">Desarrollo e implementación de espacios escolares de escucha y trabajo entre pares, promoviendo el bienestar emocional y social de los estudiantes a través de dinámicas de acompañamiento horizontal y construcción colectiva de soluciones.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-name">Convivencia Escolar</h3>
+                    <p class="project-description">Diseño y facilitación de talleres participativos con la comunidad educativa en general para la mejora del clima escolar, fomentando el diálogo, la resolución pacífica de conflictos y la construcción de vínculos saludables entre todos los actores institucionales.</p>
+                </div>
+            </section>
+
+            <section id="languages">
+                <h2>Idiomas</h2>
+                <div class="languages-list">
+                    <div class="language-item">
+                        <span class="language-name">Español</span>
+                        <span class="language-level">Nativo</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">Portugués</span>
+                        <span class="language-level">Nivel Medio</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">Inglés</span>
+                        <span class="language-level">Básico</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="certifications">
+                <h2>Certificaciones</h2>
+                
+                <div class="cert-item">
+                    <div class="cert-name">Diplomatura en Abordaje Integral contra el Trabajo Infantil</div>
+                    <div class="cert-details">Universidad Nacional de La Plata (UNLP) • 2023</div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-name">Actualización en Gestión Educativa</div>
+                    <div class="cert-details">Universidad Nacional de Misiones (UNaM) • 2016</div>
+                </div>
+            </section>
+
+            <section id="volunteer">
+                <h2>Voluntariado y Actividades</h2>
+                <ul class="volunteer-list">
+                    <li>Activista en Asociación Familias en Acción - A favor de la Donación de Órganos</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
